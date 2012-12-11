@@ -1,0 +1,83 @@
+﻿@model MemoBoard.Models.NoteViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Note</h2>
+
+@using (Html.BeginForm("index", "note", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="editor-label">
+        @Html.LabelFor(model => model.note.userId)
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.note.userId)
+        @Html.ValidationMessageFor(model => model.note.userId)
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.note.content)
+    </div>
+    <div class="editor-field">
+        @Html.TextAreaFor(model => model.note.content, new { rows = 4 })
+        @Html.ValidationMessageFor(model => model.note.content)
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.note.AttachedFiles)
+    </div>
+    <div class="editor-field">
+        <input type="file" name="attFile" />
+    </div>
+    <input type="submit" value ="Save" />
+} @* //End create form *@ 
+
+<!-- List Area -->
+
+@foreach (var note in Model.noteList)
+{
+    using (Html.BeginForm("index", "note", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.Hidden("note.id", note.id);
+        @Html.EditorForModel()
+        <div class="userIdArea"><b>@note.userId</b></div>  
+        <div class="noteArea">@note.content</div>  
+        <br />
+        <div class="editor-label">
+            @Html.LabelFor(model => model.note.userId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => note.userId)
+            @Html.ValidationMessageFor(model => note.userId)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => note.content)
+            @Html.ValidationMessageFor(model => note.content)
+        </div>
+        <div>
+            @foreach(var file in note.AttachedFiles){
+                <div>@file.fileName</div>
+            }
+        </div>
+        <div class="editor-field">
+            <input type="file" name="attFile" />
+        </div>
+        
+        <input type="submit" value="Edit" />
+        <input type="button" value="Delete" onclick="deleteNote(@note.id)" />
+    }
+}    
+
+<script type="text/javascript">
+    function deleteNote(noteId){
+        if(confirm("Are you sure you want to delete this note?")){
+            var form = $( document.createElement('form') );
+
+            form.attr("method","post")
+                .attr("action","Note/DeleteNote")
+                .append("<input type='text' name='noteId' value='"+noteId+"' />")
+                .appendTo('body')
+                .submit();
+        }
+    } //end function
+</script>

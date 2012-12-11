@@ -1,0 +1,8 @@
+c:\users\mark\documents\visual studio 2012\Projects\MemoBoard\MemoBoardDAL\obj\Debug\MemoBoardDAL.csprojResolveAssemblyReference.cache
+c:\users\mark\documents\visual studio 2012\Projects\MemoBoard\MemoBoardDAL\bin\Debug\MemoBoardDAL.dll.config
+c:\users\mark\documents\visual studio 2012\Projects\MemoBoard\MemoBoardDAL\bin\Debug\MemoBoardDAL.dll
+c:\users\mark\documents\visual studio 2012\Projects\MemoBoard\MemoBoardDAL\bin\Debug\MemoBoardDAL.pdb
+c:\users\mark\documents\visual studio 2012\Projects\MemoBoard\MemoBoardDAL\bin\Debug\EntityFramework.dll
+c:\users\mark\documents\visual studio 2012\Projects\MemoBoard\MemoBoardDAL\bin\Debug\EntityFramework.xml
+c:\users\mark\documents\visual studio 2012\Projects\MemoBoard\MemoBoardDAL\obj\Debug\MemoBoardDAL.dll
+c:\users\mark\documents\visual studio 2012\Projects\MemoBoard\MemoBoardDAL\obj\Debug\MemoBoardDAL.pdb
